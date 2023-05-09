@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(secondary: Colors.deepOrange),
+        fontFamily: 'Lato',
       ),
       home: ProductsOverviewScreen(),
       debugShowCheckedModeBanner: false,
