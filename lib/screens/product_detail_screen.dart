@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product.dart';
 
-class ProductDatailScreen extends StatelessWidget {
+class ProductDetailScreen extends StatelessWidget {
 
-  const ProductDatailScreen({
+  const ProductDetailScreen({
     Key? key,
   }) : super(key: key);
 
