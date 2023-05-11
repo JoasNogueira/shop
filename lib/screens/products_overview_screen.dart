@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/components/badgee.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/product_list.dart';
+import 'package:shop/utils/app_routes.dart';
 
 import '../models/cart.dart';
 
@@ -43,8 +44,12 @@ class ProductsOverviewScreen extends StatelessWidget {
           ),
           Consumer<Cart>(
             child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  AppRoutes.cartScreen,
+                );
+              },
+              icon: const Icon(Icons.shopping_cart),
             ),
             builder: (context, cart, child) => Badgee(
               value: cart.itemsCount.toString(),
