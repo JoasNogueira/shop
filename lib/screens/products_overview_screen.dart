@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/components/badgee.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/product_list.dart';
+
+import '../models/cart.dart';
 
 enum FilterOptions {
   Favorite,
@@ -31,12 +34,22 @@ class ProductsOverviewScreen extends StatelessWidget {
               )
             ],
             onSelected: (FilterOptions selectedValue) {
-              if(selectedValue == FilterOptions.Favorite){
+              if (selectedValue == FilterOptions.Favorite) {
                 provider.showFavoriteOnly();
-              }else{
+              } else {
                 provider.showAll();
               }
             },
+          ),
+          Consumer<Cart>(
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.shopping_cart),
+            ),
+            builder: (context, cart, child) => Badgee(
+              value: cart.itemsCount.toString(),
+              child: child!,
+            ),
           )
         ],
       ),
