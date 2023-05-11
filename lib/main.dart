@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple)
               .copyWith(secondary: Colors.deepOrange),
           fontFamily: 'Lato',
         ),
