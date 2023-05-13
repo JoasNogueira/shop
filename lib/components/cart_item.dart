@@ -21,13 +21,32 @@ class CartItemWidget extends StatelessWidget {
           horizontal: 15,
           vertical: 4,
         ),
-        child: const Icon(Icons.delete,
-        color: Colors.white,
-        size: 40,
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 40,
         ),
       ),
+      confirmDismiss: (direction) {
+        return showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Tem Certeza?'),
+            content: const Text('Quer Remover o Item do Carrinho?'),
+            actions: [
+              TextButton(onPressed: () {
+                Navigator.of(context).pop(false);
+              }, child: const Text('Não')),
+              TextButton(onPressed: () {
+                Navigator.of(context).pop(true);
+              }, child: const Text('Sim'))
+            ],
+          ),
+        );
+      },
       onDismissed: (direction) {
-        Provider.of<Cart>(context, listen: false).removeItem(cartItem.productId);
+        Provider.of<Cart>(context, listen: false)
+            .removeItem(cartItem.productId);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(
@@ -40,7 +59,9 @@ class CartItemWidget extends StatelessWidget {
             leading: CircleAvatar(
               child: Padding(
                 padding: const EdgeInsets.all(5),
-                child: FittedBox(child: Text('${cartItem.price}'),),
+                child: FittedBox(
+                  child: Text('${cartItem.price}'),
+                ),
               ),
             ),
             title: Text(cartItem.name),
