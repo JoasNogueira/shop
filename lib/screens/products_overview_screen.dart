@@ -9,8 +9,8 @@ import 'package:shop/utils/app_routes.dart';
 import '../models/cart.dart';
 
 enum FilterOptions {
-  Favorite,
-  All,
+  favorite,
+  all,
 }
 
 class ProductsOverviewScreen extends StatelessWidget {
@@ -27,16 +27,16 @@ class ProductsOverviewScreen extends StatelessWidget {
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => [
               const PopupMenuItem(
-                value: FilterOptions.Favorite,
+                value: FilterOptions.favorite,
                 child: Text('Somente Favoritos'),
               ),
               const PopupMenuItem(
-                value: FilterOptions.All,
+                value: FilterOptions.all,
                 child: Text('Todos'),
               )
             ],
             onSelected: (FilterOptions selectedValue) {
-              if (selectedValue == FilterOptions.Favorite) {
+              if (selectedValue == FilterOptions.favorite) {
                 provider.showFavoriteOnly();
               } else {
                 provider.showAll();
